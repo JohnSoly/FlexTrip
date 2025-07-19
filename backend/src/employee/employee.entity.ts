@@ -19,6 +19,12 @@ export class Employee {
   @Column({ type: 'varchar', unique: true, nullable: true })
   NationalID: string;
 
+  @Column({ type: 'varchar', unique: true, nullable: true })
+  Email: string;
+
+  @Column({ type: 'varchar', nullable: false })
+  Password: string;
+
   @Column({ type: 'date', nullable: true })
   JoinedDate: Date;
 

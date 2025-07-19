@@ -17,4 +17,9 @@ export class CountryService {
     const newCountry = this.countryRepository.create(countryData);
     return this.countryRepository.save(newCountry);
   }
+
+  // This method retrieves all countries from the database.
+  async findAll(): Promise<Country[]> {
+    return this.countryRepository.find();
+  }
 }

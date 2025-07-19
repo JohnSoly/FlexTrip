@@ -1,0 +1,37 @@
+# docker-compose.yml
+# This is the standard version that uses an .env file for credentials.
+
+services:
+  # Define the NestJS Backend Service
+  backend:
+    container_name: flextrip_backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - postgres_db
+
+  # Define the PostgreSQL Database Service
+  postgres_db:
+    image: postgres:13
+    platform: linux/amd64 # For M1/M2 Mac compatibility
+    container_name: flextrip_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
