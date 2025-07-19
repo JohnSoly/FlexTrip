@@ -1,0 +1,22 @@
+# backend/.dockerignore
+
+# Ignore node_modules as they will be installed inside the container
+node_modules
+
+# Ignore build artifacts
+dist
+
+# Ignore npm debug logs
+npm-debug.log
+```env
+# .env (in the root folder)
+
+# PostgreSQL Database Configuration
+DB_HOST=postgres_db
+DB_PORT=5432
+DB_USERNAME=your_db_user
+DB_PASSWORD=your_db_password
+DB_DATABASE=flextrip_db
+
+# Application Port
+PORT=3000
