@@ -32,7 +32,7 @@ export default function Login() {
       const data= await api.signIn(formData.email , formData.password);
 
       // Redirect to dashboard or home page
-      window.location.href = '/hotel-managment'; // or wherever you want to redirect
+      window.location.href = '/hotelmana'; // or wherever you want to redirect
       
     } catch (err) {
       setError(err.message || 'An error occurred during login');
