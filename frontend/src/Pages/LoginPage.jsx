@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Button, Label, TextInput } from "flowbite-react";
-import { HiEye, HiEyeOff } from "react-icons/hi"; 
+import { HiEye, HiEyeOff } from "react-icons/hi";
 import api from "../services/api";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    email: "",
+    username: "", // Changed from email to username
     password: ""
   });
   const [loading, setLoading] = useState(false);
@@ -28,12 +28,12 @@ export default function Login() {
     setError("");
 
     try {
-
-      const data= await api.signIn(formData.email , formData.password);
+      // Changed api.signIn call to use formData.username
+      const data = await api.signIn(formData.username, formData.password);
 
       // Redirect to dashboard or home page
       window.location.href = '/hotel-managment'; // or wherever you want to redirect
-      
+
     } catch (err) {
       setError(err.message || 'An error occurred during login');
     } finally {
@@ -43,7 +43,7 @@ export default function Login() {
 
   return (
     <div className="h-screen w-full bg-gradient-to-br from-[#383234] to-[#FFCC2A] flex items-center justify-center relative">
-      
+
       <div className="absolute top-5 right-5">
         <img src="/logo.png" alt="Destination Logo" className="w-12 h-12" />
       </div>
@@ -55,24 +55,24 @@ export default function Login() {
 
         {/* Error Message */}
         {error && (
-          <div className="mb-4 p-3 bg-red-500 bg-opacity-20 border border-red-500 rounded-md">
-            <p className="text-red-300 text-sm">{error}</p>
+          <div className="mb-4 text-red-500 text-sm text-center"> {/* Simplified error message styling */}
+            <p>{error}</p>
           </div>
         )}
 
         <form onSubmit={handleSubmit}>
-          {/* Email */}
+          {/* Username */}
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-1">
-              Email
+            <label htmlFor="username" className="block text-sm font-medium text-gray-200 mb-1">
+              Username {/* Changed label from Email to Username */}
             </label>
             <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
+              id="username"
+              name="username" // Changed name from email to username
+              type="text" // Changed type from email to text
+              value={formData.username}
               onChange={handleInputChange}
-              placeholder="you@example.com"
+              placeholder="Enter your username" // Updated placeholder
               required
               className="w-full p-2.5 rounded-md bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
             />
@@ -105,7 +105,7 @@ export default function Login() {
             </div>
           </div>
 
-          <Button 
+          <Button
             type="submit"
             disabled={loading}
             className="w-full bg-[#fcd34d] hover:bg-[#fbbf24] text-gray-900 font-semibold disabled:opacity-50"
