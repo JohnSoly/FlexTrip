@@ -8,6 +8,15 @@ import { AuthModule } from './auth/auth.module'; // Import the new AuthModule
 import { EmployeeModule } from './employee/employee.module'; // Import the new EmployeeModule
 import { RoleModule } from './role/role.module'; // Import the new RoleModule
 import { TeamModule } from './team/team.module'; // Import the new TeamModule
+import { RoomTypeModule } from './room-type/room-type.module';
+import { CompanyModule } from './company/company.module';
+import { HotelModule } from './hotel/hotel.module';
+import { CustomerModule } from './customer/customer.module';
+import { ClientModule } from './client/client.module';
+import { CityModule } from './city/city.module';
+import { BookingModule } from './booking/booking.module';
+import { SupplierModule } from './supplier/supplier.module';
+import { DriverModule } from './driver/driver.module';
 
 @Module({
   imports: [
@@ -33,6 +42,15 @@ import { TeamModule } from './team/team.module'; // Import the new TeamModule
     EmployeeModule, // This line registers our new EmployeeModule with the application
     RoleModule, // This line registers our new RoleModule with the application
     TeamModule, // This line registers our new TeamModule with the application
+    RoomTypeModule,
+    CompanyModule,
+    HotelModule,
+    CustomerModule,
+    ClientModule,
+    CityModule,
+    BookingModule,
+    SupplierModule,
+    DriverModule,
   ],
   controllers: [], // We are not using the default AppController
   providers: [],   // We are not using the default AppService

@@ -15,11 +15,11 @@ export class AuthService {
   ) {}
 
   async signIn(signInDto: SignInDto) {
-    const { email, password } = signInDto;
+    const { username, password } = signInDto;
 
-    // Find employee by email
+    // Find employee by username
     const employee = await this.employeeRepository.findOne({
-      where: { Email: email },
+      where: { username: username },
       relations: ['role', 'team'],
     });
 
@@ -28,7 +28,7 @@ export class AuthService {
     }
 
     // Compare password
-    const isPasswordValid = await bcrypt.compare(password, employee.Password);
+    const isPasswordValid = await bcrypt.compare(password, employee.password);
     if (!isPasswordValid) {
       throw new UnauthorizedException('Invalid credentials');
     }
@@ -36,7 +36,7 @@ export class AuthService {
     // Generate JWT payload
     const payload = {
       sub: employee.EmployeeID,
-      email: employee.Email,
+      username: employee.username,
       roleId: employee.RoleID,
       teamId: employee.TeamID,
       firstName: employee.FirstName,
@@ -50,7 +50,7 @@ export class AuthService {
       access_token: token,
       employee: {
         id: employee.EmployeeID,
-        email: employee.Email,
+        username: employee.username,
         firstName: employee.FirstName,
         lastName: employee.LastName,
         role: employee.role,
