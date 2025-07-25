@@ -11,10 +11,10 @@ export default {
       extend: {
         colors: {
           primary: {
-            DEFAULT: "#FFCC2A", // Your main primary color
-            light: "#FFE799",  // A lighter shade for backgrounds (e.g., active pagination)
-            dark: "#CC9900",   // A darker shade for hover states
-            // You can add more shades if needed, e.g., '50', '100', ..., '900'
+            DEFAULT: "#FFCC2A", 
+            light: "#FFE799",  
+            dark: "#CC9900",   
+           
           },
         },
         animation: {

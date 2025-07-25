@@ -13,7 +13,9 @@
 .animation-delay-4000 {
   animation-delay: 4s;
 }
-
+body {
+  font-family: 'Inter', sans-serif;
+}
 /* --- ADD THESE STYLES FOR FULL PAGE COVERAGE --- */
 html, body, #root {
   height: 100%;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import Breadcrumb from "../../components/BreadCrumb";
 import SearchFilterAdd from "../../components/SearchFilterAdd";
@@ -6,6 +7,7 @@ import DynamicTable from "../../components/Table";
 import Pagination from "../../components/Pagination";
 
 const HotelManagment = () => {
+  const navigate = useNavigate();
   // State for pagination
   const [currentPage, setCurrentPage] = useState(1);
   const totalItems = 1000;
@@ -75,8 +77,8 @@ const HotelManagment = () => {
   };
 
   const handleAdd = () => {
-    console.log("Add button clicked");
-    // add button logic
+    console.log("Add button clicked, navigating to /hotels/add");
+    navigate("/hotels/add"); 
   };
 
   const handlePageChange = (page) => {
@@ -89,7 +91,7 @@ const HotelManagment = () => {
     <div className="flex h-screen font-inter">
       <Sidebar />
 
-      <div className="flex-1 p-8 bg-white">
+      <div className="flex-1 p-8 bg-white overflow-auto">
         <h1 className="text-2xl font-bold text-gray-800">Hotel Management</h1>
 
     
