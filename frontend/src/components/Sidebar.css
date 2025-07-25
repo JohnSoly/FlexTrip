@@ -9,7 +9,7 @@
     padding: 20px 0;
     font-family: 'Inter', sans-serif;
     transition: width 0.3s ease;
-    overflow: hidden;
+  
   }
   
   .sidebar.collapsed {
@@ -102,4 +102,12 @@
     border-radius: 50%;
     margin-bottom: 12px;
   }
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between icon and label */
+    color: inherit;
+    text-decoration: none;
+  }
+  
   
