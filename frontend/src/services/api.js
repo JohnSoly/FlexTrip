@@ -53,7 +53,7 @@ class ApiService {
     if (response.status === 401) {
       // Token expired or invalid
       this.clearAuth();
-      window.location.href = '/login';
+      window.location.href = '/';
       throw new Error('Authentication expired');
     }
 
@@ -61,13 +61,13 @@ class ApiService {
   }
 
   // Authentication methods
-  async signIn(email, password) {
+  async signIn(username, password) {
     const response = await fetch(`${this.baseURL}/auth/signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ username, password }),
     });
 
     const data = await response.json();

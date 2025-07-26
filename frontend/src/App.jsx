@@ -49,7 +49,7 @@ function App() {
           <Route path="/" element={<Login />} />
 
           {/* All other routes are wrapped within ProtectedRoute */}
-          <Route element={<ProtectedRoute />}>
+          
             <Route path="/hotel-managment" element={<HotelManagment />} />
             <Route path="/hotels/add" element={<AddHotel />} />
             <Route path="/master-data/company" element={<CompanyPage />} />
@@ -85,7 +85,7 @@ function App() {
             <Route path="/master-data/BookedLeg" element={<BookedLegPage />} />
             <Route path="/master-data/AdHocTransportationBooking" element={<AdHocTransportationBookingPage />} />
             <Route path="/master-data/ActivityBooking" element={<ActivityBookingPage />} />
-          </Route>
+       
         </Routes>
       </div>
     </Router>

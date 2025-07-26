@@ -40,3 +40,8 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   position: absolute;
   right: 0;
 }
+:root {
+  --color-primary: #FFCC2A;
+  --color-primary-light: #FFE799;
+  --color-primary-dark: #CC9900;
+}
